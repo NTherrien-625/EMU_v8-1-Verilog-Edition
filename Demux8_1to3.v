@@ -1,10 +1,10 @@
 /*
-Title : Demux8_3to1.v
+Title : Demux8_1to3.v
 Author : Nathaniel Therrien
 Descrption : A verilog module for a 3 to 1 demultiplexer, select 0 leads to nothing.
 */
 
-module Demux8_3to1(I, S, Q1, Q2, Q3);
+module Demux8_1to3(I, S, Q1, Q2, Q3);
     input [7:0] I;
     input [1:0] S;
     output [7:0] Q1;
