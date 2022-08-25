@@ -1,10 +1,10 @@
 /*
-Title : Demux8_3to1_TestBench.v 
+Title : Demux8_1to3_TestBench.v 
 Author : Nathaniel Therrien
-Description : A testbench for the Demux8_3to1 module. Tests the module's response to input changes and select code changes.
+Description : A testbench for the Demux8_1to3 module. Tests the module's response to input changes and select code changes.
 */
 
-module Demux8_3to1_TestBench();
+module Demux8_1to3_TestBench();
     // Testbench Variables
     reg [7:0] data_in;
     reg [1:0] select;
@@ -12,7 +12,7 @@ module Demux8_3to1_TestBench();
     wire [7:0] two_out;
     wire [7:0] three_out;
 
-    Demux8_3to1 uut1 (.I(data_in), .S(select), .Q1(one_out), .Q2(two_out), .Q3(three_out));
+    Demux8_1to3 uut1 (.I(data_in), .S(select), .Q1(one_out), .Q2(two_out), .Q3(three_out));
 
     initial begin
         // Monitor Format
