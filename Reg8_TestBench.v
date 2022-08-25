@@ -1,7 +1,7 @@
 /*
-Title :
-Author : 
-Description : 
+Title : Reg8_TestBench.v
+Author : Nathaniel Therrien
+Description : A testbench for the Reg8 module. Tests the module's response to clock changes and enable bit changes.
 */
 
 module Reg8_TestBench();
