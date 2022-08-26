@@ -6,8 +6,8 @@ Description : Verilog modules for full 8 bit adder and its supporting modules.
 
 module FullAdder1(A, B, Cin, S, Cout);
     // Module IO
-    input A, B, Cin
-    output S, Cout
+    input A, B, Cin;
+    output S, Cout;
 
     // Internal Wires
     // wire1 - A xor B
@@ -22,7 +22,7 @@ module FullAdder1(A, B, Cin, S, Cout);
     and(wire2, A, B);
     and(wire3, wire1, Cin);
     xor(S, wire1, Cin);
-    and(Cout, wire2, wire3);
+    or(Cout, wire2, wire3);
     
 endmodule
 
@@ -43,13 +43,13 @@ module FullAdder8(A, B, Cin, S, Cout);
     wire carry_six;
 
     // Module Logic
-    FullAdder1 zero (.A(A[0]), .B(B[0]), .Cin(0), .S(S[0]), .Cout(carry_zero));
+    FullAdder1 zero (.A(A[0]), .B(B[0]), .Cin(Cin), .S(S[0]), .Cout(carry_zero));
     FullAdder1 one (.A(A[1]), .B(B[1]), .Cin(carry_zero), .S(S[1]), .Cout(carry_one));
     FullAdder1 two (.A(A[2]), .B(B[2]), .Cin(carry_one), .S(S[2]), .Cout(carry_two));
     FullAdder1 three (.A(A[3]), .B(B[3]), .Cin(carry_two), .S(S[3]), .Cout(carry_three));
-    FullAdder1 zero (.A(A[4]), .B(B[4]), .Cin(carry_three), .S(S[4]), .Cout(carry_four));
-    FullAdder1 zero (.A(A[5]), .B(B[5]), .Cin(carry_four), .S(S[5]), .Cout(carry_five));
-    FullAdder1 zero (.A(A[6]), .B(B[6]), .Cin(carry_five), .S(S[6]), .Cout(carry_six));
-    FullAdder1 zero (.A(A[7]), .B(B[7]), .Cin(carry_six), .S(S[7]), .Cout(Cout));
+    FullAdder1 four (.A(A[4]), .B(B[4]), .Cin(carry_three), .S(S[4]), .Cout(carry_four));
+    FullAdder1 five (.A(A[5]), .B(B[5]), .Cin(carry_four), .S(S[5]), .Cout(carry_five));
+    FullAdder1 six (.A(A[6]), .B(B[6]), .Cin(carry_five), .S(S[6]), .Cout(carry_six));
+    FullAdder1 seven (.A(A[7]), .B(B[7]), .Cin(carry_six), .S(S[7]), .Cout(Cout));
 
 endmodule
